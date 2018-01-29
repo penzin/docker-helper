@@ -8,7 +8,7 @@ A very simple minimal budle for starting in docker-compose.
 3. MySQL 8
 
 ## Setup
-0. intsall Docker & Docker-compose
+0. intsall [Docker](https://docs.docker.com/install/) & [Docker-compose](https://docs.docker.com/compose/install/)
 1. Clone this repo
 2. Change 'server_name' in nginx/site.conf to your actual ip
 3. sudo docker-compose up
