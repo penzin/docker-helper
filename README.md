@@ -1,7 +1,7 @@
 # docker_helper
 
-A very simple minimal bundle for starting in docker & docker-compose. 
-It's cosist of three containers, linked each other with docker-compose.yml.
+A very simple minimal bundle for starting with docker & docker-compose. 
+It's cosist of three containers, linked with docker-compose.yml.
 
 ## Contents
 1. Nginx lastes
