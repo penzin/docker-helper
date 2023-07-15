@@ -1,14 +1,9 @@
 <?php
 
-    error_reporting(E_ALL);
-    ini_set("display_errors", "on");
-    
-    echo "<h1>Docker-compose: Nginx + php-fpm7.1 + MySQL8 test App</h1>";
-    
-    //host = db, see docker-compose.yml
-    $pdo = new PDO("mysql:host=db;charset=utf8;dbname=mysql", "root", "root");
-    $users = $pdo->query("SELECT * FROM user")->fetchAll();
-    
-    echo "<pre>";
-    print_r($users);
-    echo "</pre>";
+echo 'Project run under docker-compose: Nginx latest + php-fpm8.2 + MySQL8<br />';
+echo 'PHP Version: ' . PHP_VERSION . '<br />';
+
+$connection = new PDO('mysql:host=db;charset=utf8;dbname=mysql', 'root', 'root');
+$connection->query('SELECT version();')->fetchColumn(0);
+
+echo 'Mysql version: ' . $connection->query('SELECT version();')->fetchColumn(0);

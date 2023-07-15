@@ -1,26 +1,37 @@
-version: '3'
 services:
-  php:
-    build: php    
+  php-fpm:
+    container_name: php-fpm
+    build: php
     volumes:
       - ./app:/var/www/app
     links:
-        - db   
+      - db
+    networks:
+      - docker-helper-nt
 
   nginx:
+    container_name: nginx
     image: nginx:latest
     ports:
       - "8080:80"
     volumes:
       - ./app:/var/www/app
-      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     links:
-        - php   
+      - php-fpm
+    depends_on:
+      - php-fpm
+    networks:
+      - docker-helper-nt
 
   db:
+    container_name: db
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
-      MYSQL_USER: prv
-      MYSQL_PASSWORD: 12qwaszx
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - docker-helper-nt
+
+networks:
+  docker-helper-nt:
+    driver: bridge
