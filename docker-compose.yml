@@ -14,12 +14,9 @@ services:
       - ./app:/var/www/app
       - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     links:
-        - php
-#
-#  db:
-#    image: mysql:8
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root
-#      MYSQL_DATABASE: test
-#      MYSQL_USER: prv
-#      MYSQL_PASSWORD: 12qwaszx
+        - php-fpm
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root

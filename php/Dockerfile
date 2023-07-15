@@ -6,17 +6,18 @@ RUN apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
         libicu-dev \
         libxml2-dev \
         libzip-dev \
         libonig-dev \
         wget \
         git \
+        unzip
 
-RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif pcntl soap bcmath zip sockets \
+RUN docker-php-ext-install pdo_pgsql sockets
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
-    && docker-php-ext-install gd
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install intl mbstring pdo_mysql exif gd pcntl soap bcmath zip
 
 # configure
 COPY php.ini /usr/local/etc/php/
