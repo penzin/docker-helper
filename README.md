@@ -5,7 +5,7 @@ It consists of three containers, linked with `docker-compose.yml`.
 
 ## Contents
 1. Nginx latest
-2. Php-fpm 7.1
+2. Php-fpm 8.2
 3. MySQL 8
 
 ## Install and usage
