@@ -14,7 +14,7 @@ RUN apt-get install -y --no-install-recommends \
         wget \
         git \
 
-RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif pcntl soap bcmath zip \
+RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif pcntl soap bcmath zip sockets \
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install gd
 
