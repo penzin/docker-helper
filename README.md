@@ -11,6 +11,6 @@ It consists of three containers, linked with `docker-compose.yml`.
 ## Install and usage
 1. install [Docker & docker-compose](https://docs.docker.com/get-docker/).
 1. Clone this repo
-1. sudo docker-compose up
+1. Run `docker-compose up`
 1. Open http://127.0.0.1:8080.
 1. Enjoy :)

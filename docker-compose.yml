@@ -1,11 +1,10 @@
-version: '3'
 services:
-  php:
-    build: php    
+  php-fpm:
+    build: php
     volumes:
       - ./app:/var/www/app
     links:
-        - db   
+        - db
 
   nginx:
     image: nginx:latest
@@ -13,14 +12,14 @@ services:
       - "8080:80"
     volumes:
       - ./app:/var/www/app
-      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     links:
-        - php   
-
-  db:
-    image: mysql:8
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
-      MYSQL_USER: prv
-      MYSQL_PASSWORD: 12qwaszx
+        - php
+#
+#  db:
+#    image: mysql:8
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: test
+#      MYSQL_USER: prv
+#      MYSQL_PASSWORD: 12qwaszx
