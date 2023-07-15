@@ -14,10 +14,10 @@ RUN apt-get install -y --no-install-recommends \
         git \
         unzip
 
-RUN docker-php-ext-install pdo_pgsql sockets
+RUN docker-php-ext-install pdo_mysql sockets
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-configure zip \
-    && docker-php-ext-install intl mbstring pdo_mysql exif gd pcntl soap bcmath zip
+    && docker-php-ext-install intl mbstring exif gd pcntl soap bcmath zip
 
 # configure
 COPY php.ini /usr/local/etc/php/
@@ -32,5 +32,5 @@ RUN apt-get purge -y g++ \
 RUN curl https://getcomposer.org/composer.phar > /usr/local/bin/composer && chmod a+x /usr/local/bin/composer
 
 EXPOSE 9000
-WORKDIR "/app"
+WORKDIR "/var/www/app"
 CMD ["php-fpm"]
