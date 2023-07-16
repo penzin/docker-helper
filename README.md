@@ -17,7 +17,8 @@ It consists of three containers, configured with `docker-compose.yml`.
 1. Enjoy :)
 
 ## Useful commands
-- `docker compose down` - stop all bundled containers
+- `docker compose stop` - stop all bundled containers
+- `docker compose down` - down all bundled containers
 - `docker ps -a` - show all containers
 - `docker compose rm` - remove all containers in current directory
 - `docker exec -it {containerName} bash` - go into {containerName} container, for example: `docker exec -it php-fpm bash`
